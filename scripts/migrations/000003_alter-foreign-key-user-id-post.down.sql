@@ -1,0 +1,2 @@
+ALTER TABLE posts DROP CONSTRAINT fk_user_id_posts;
+ALTER TABLE posts MODIFY COLUMN user_id INT NOT NULL;

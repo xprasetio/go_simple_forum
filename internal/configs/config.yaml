@@ -1,0 +1,6 @@
+service:
+  port: ":9876"
+  secretJWT: "rahasiaDongBos"
+
+database:
+  dataSourceName: "root:admin@tcp(localhost:3307)/go_simple_forum?parseTime=true"
