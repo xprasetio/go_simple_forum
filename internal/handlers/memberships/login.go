@@ -14,13 +14,14 @@ func (h *Handler) Login(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	accessToken, err := h.membershipSvc.Login(ctx, req)
+	accessToken, refreshToken, err := h.membershipSvc.Login(ctx, req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 	response := memberships.LoginResponse{
-		AccessToken: accessToken,
+		AccessToken:  accessToken,
+		RefreshToken: refreshToken,
 	}
 	c.JSON(http.StatusOK, response)
 }
